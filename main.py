@@ -21,8 +21,8 @@ api = tweepy.API(auth)
 
 
 # change keywords to whatever you want to search twitter for
-keywords = '2021'
-limit = 300
+keywords = input('What keywords do you want to include in this search?: ')
+limit = int(input('How many tweets do you want to pull?: '))
 
 # used limit to bypass tweet per command limit
 tweets = tweepy.Cursor(api.search_tweets, q=keywords, count = 100, tweet_mode = 'extended').items(limit)
