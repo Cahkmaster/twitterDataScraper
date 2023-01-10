@@ -23,9 +23,10 @@ api = tweepy.API(auth)
 # change keywords to whatever you want to search twitter for
 keywords = input('What keywords do you want to include in this search?: ')
 limit = int(input('How many tweets do you want to pull?: '))
+language = str(input('In what language do you want the tweets to be in? (use two letter abbreviations only): '))
 
 # used limit to bypass tweet per command limit
-tweets = tweepy.Cursor(api.search_tweets, q=keywords, count = 100, tweet_mode = 'extended').items(limit)
+tweets = tweepy.Cursor(api.search_tweets, q=keywords, count = 100, tweet_mode = 'extended', lang = language).items(limit)
 
 # setting up dataframe
 columns = ['Time', 'User', 'Tweet']
